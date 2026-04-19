@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Booklord</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<button id="botonModo" onclick="toggleModo()">🌙</button>
+
+<div class="sidebar">
+  <div class="sidebar-top">
+    <h2>📚 Booklord</h2>
+    <p id="nombreUsuario" style="display:none;"></p>
+    <p onclick="document.getElementById('inicio').scrollIntoView({behavior:'smooth'})">🏠 Inicio</p>
+    <p onclick="document.getElementById('seccion-catalogo').scrollIntoView({behavior:'smooth'})">📖 Catálogo</p>
+    <p onclick="mostrarSeccionAutores()">✍️ Autores</p>
+    <p style="opacity:0.5; cursor:not-allowed;">❄️ Temporada</p>
+    <p style="opacity:0.5; cursor:not-allowed;">⭐ Recomendados</p>
+    <p onclick="document.getElementById('seccion-biblioteca').scrollIntoView({behavior:'smooth'})">📚 Mi biblioteca</p>
+    <p id="btnSesion" onclick="mostrarLogin()">Iniciar sesión</p>
+  </div>
+</div>
+
+<div class="main">
+
+  <h1 id="inicio">Bienvenido a Booklord</h1>
+
+  <select id="tipoBusqueda">
+    <option value="titulo">Libros</option>
+    <option value="autor">Autores</option>
+  </select>
+  <input type="text" id="buscador" placeholder="Buscar..." onkeyup="buscar()">
+
+  <h2 id="seccion-catalogo">Libros</h2>
+
+  <div class="container"></div>
+
+  <h2 id="seccion-biblioteca">Mi biblioteca</h2>
+  <div id="biblioteca" class="container"></div>
+
+  <div id="vistaLibro" style="display:none;">
+    <button onclick="cerrarLibro()">← Volver</button>
+    <div id="detalleLibro"></div>
+  </div>
+
+  <!-- ERROR 4 CORREGIDO: vistaAutor añadido al HTML -->
+  <div id="vistaAutor" style="display:none;">
+    <button onclick="cerrarAutor()">← Volver</button>
+    <div id="detalleAutor"></div>
+  </div>
+
+</div>
+
+<div id="login" style="display:none;">
+    <span onclick="cerrarLogin()" style="float:right; cursor:pointer;">❌</span>
+    <h2 id="tituloLogin">Iniciar sesión</h2>
+    <input id="usuario" placeholder="Usuario">
+    <input id="password" type="password" placeholder="Contraseña">
+    <button id="btnAccion" onclick="login()">Entrar</button>
+    <button id="btnCambiar" onclick="mostrarRegistro()">Registrarse</button>
+  
+  </div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
